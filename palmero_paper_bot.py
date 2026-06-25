@@ -439,6 +439,13 @@ def abrir_manual(symbol, tipo):
 @app.route("/posiciones")
 def posiciones():
     """Ver posiciones activas."""
+    if not _active_positions:
+        return jsonify({
+            "posiciones_activas": {},
+            "mensaje": "sin posiciones abiertas",
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        })
+
     client = get_client()
     precios = {}
     if client:
