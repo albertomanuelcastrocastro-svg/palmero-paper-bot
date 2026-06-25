@@ -1,0 +1,4 @@
+flask==3.0.0
+gunicorn==21.2.0
+python-binance==1.0.19
+requests==2.31.0
